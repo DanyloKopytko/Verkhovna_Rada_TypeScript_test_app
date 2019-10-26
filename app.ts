@@ -12,7 +12,7 @@ async function main() {
     do {
         console.log('1 - Verkhovna Rada');
         console.log('2 - Fractions');
-        console.log('3 - Deputats');
+        console.log('3 - Deputat');
 
         let chosenNumber: string = await crw.read();
 
