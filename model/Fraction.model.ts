@@ -10,7 +10,7 @@ export class FractionModel {
     }
 
     addDeputat(deputatFirstName: string, deputatLastName: string, deputats: DeputatModel[]): DeputatModel | undefined {
-        let deputatWasAdded: DeputatModel | undefined = deputats.find((deputat: DeputatModel) => {
+        const deputatWasAdded: DeputatModel | undefined = deputats.find((deputat: DeputatModel) => {
             if (deputat.firstname === deputatFirstName && deputat.lastname === deputatLastName) {
                 this.deputatsList.push(deputat);
 
@@ -26,7 +26,7 @@ export class FractionModel {
     }
 
     deleteDeputat(deputatFirstName: string, deputatLastName: string): DeputatModel | undefined {
-        let deputatWasDeleted: DeputatModel | undefined = this.deputatsList.find((deputat: DeputatModel, index: number) => {
+        const deputatWasDeleted: DeputatModel | undefined = this.deputatsList.find((deputat: DeputatModel, index: number) => {
             if (deputat.firstname === deputatFirstName && deputat.lastname === deputatLastName) {
                 this.deputatsList.splice(index, 1);
 
@@ -50,7 +50,7 @@ export class FractionModel {
     }
 
     findAllGrafters(): void {
-        let grafters: DeputatModel[] = [];
+        const grafters: DeputatModel[] = [];
 
         this.deputatsList.find((deputat: DeputatModel) => {
             if (deputat.grafter) {
@@ -66,7 +66,7 @@ export class FractionModel {
     }
 
     showTheBiggestGrafter(): DeputatModel {
-        let theBiggestGrafter: DeputatModel = this.deputatsList.reduce((prev: DeputatModel, cur: DeputatModel) => (cur.stolenMoneys as number) > (prev.stolenMoneys as number) ? cur : prev);
+        const theBiggestGrafter: DeputatModel = this.deputatsList.reduce((prev: DeputatModel, cur: DeputatModel) => (cur.stolenMoneys as number) > (prev.stolenMoneys as number) ? cur : prev);
 
         console.log(theBiggestGrafter);
 

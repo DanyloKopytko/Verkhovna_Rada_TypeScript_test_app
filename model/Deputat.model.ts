@@ -35,7 +35,7 @@ export class DeputatModel extends HumanModel {
 
             return true;
         } else {
-            console.log('You can\'t but this deputat');
+            console.log('You can\'t buy this deputat');
 
             return false;
         }

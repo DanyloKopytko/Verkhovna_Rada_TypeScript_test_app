@@ -9,7 +9,7 @@ export class VerkhovnaRadaModel {
     }
 
     addFraction(fractionName: string, fractionsList: FractionModel[]): void {
-        let fractionWasAdded: FractionModel | undefined = fractionsList.find((fraction) => {
+        const fractionWasAdded: FractionModel | undefined = fractionsList.find((fraction) => {
             if (fractionName === fraction.fractionName) {
                 this.fractionsList.push(fraction);
 
@@ -23,7 +23,7 @@ export class VerkhovnaRadaModel {
     }
 
     deleteFraction(fractionName: string): void {
-        let fractionWasDeleted: FractionModel | undefined = this.fractionsList.find((fraction: FractionModel, index: number) => {
+        const fractionWasDeleted: FractionModel | undefined = this.fractionsList.find((fraction: FractionModel, index: number) => {
             if (fractionName === fraction.fractionName) {
                 this.fractionsList.splice(index, 1);
 
@@ -41,7 +41,7 @@ export class VerkhovnaRadaModel {
     }
 
     showThisFraction(fractionName: string): void {
-        let fractionToFound: FractionModel | undefined = this.fractionsList.find((fraction: FractionModel) => {
+        const fractionToFound: FractionModel | undefined = this.fractionsList.find((fraction: FractionModel) => {
             if (fractionName === fraction.fractionName) {
                 return fraction;
             }
@@ -55,7 +55,7 @@ export class VerkhovnaRadaModel {
     }
 
     addDeputatToFraction(fractionName: string, deputatFirstName: string, deputatLastName: string, deputats: DeputatModel[]): void {
-        let deputatWasAdded: FractionModel | undefined = this.fractionsList.find((fraction: FractionModel) => {
+        const deputatWasAdded: FractionModel | undefined = this.fractionsList.find((fraction: FractionModel) => {
             if (fractionName === fraction.fractionName) {
                 fraction.addDeputat(deputatFirstName, deputatLastName, deputats);
 
@@ -69,7 +69,7 @@ export class VerkhovnaRadaModel {
     }
 
     deleteDeputatFromFraction(fractionName: string, deputatFirstName: string, deputatLastName: string): void {
-        let deputatWasDeleted: FractionModel | undefined = this.fractionsList.find((fraction: FractionModel) => {
+        const deputatWasDeleted: FractionModel | undefined = this.fractionsList.find((fraction: FractionModel) => {
             if (fractionName === fraction.fractionName) {
                 fraction.deleteDeputat(deputatFirstName, deputatLastName);
 
@@ -83,7 +83,7 @@ export class VerkhovnaRadaModel {
     }
 
     showAllGraftersInThisFraction(fractionName: string): void {
-        let fractionWasFound: FractionModel | undefined = this.fractionsList.find((fraction: FractionModel) => {
+        const fractionWasFound: FractionModel | undefined = this.fractionsList.find((fraction: FractionModel) => {
             if (fractionName === fraction.fractionName) {
                 fraction.findAllGrafters();
 
@@ -105,13 +105,13 @@ export class VerkhovnaRadaModel {
     }
 
     showTheBiggestGrafterInWholeRada(): void {
-        let theBiggestGraftersFromEachFraction: DeputatModel[] = [];
+        const theBiggestGraftersFromEachFraction: DeputatModel[] = [];
 
         this.fractionsList.find((fraction: FractionModel) => {
             theBiggestGraftersFromEachFraction.push(fraction.showTheBiggestGrafter());
         });
 
-        let theBiggestGrafterInWholeRada: DeputatModel = theBiggestGraftersFromEachFraction.reduce(
+        const theBiggestGrafterInWholeRada: DeputatModel = theBiggestGraftersFromEachFraction.reduce(
             (prev: DeputatModel, cur: DeputatModel) => (cur.stolenMoneys as number) > (prev.stolenMoneys as number) ? cur : prev
         );
 
